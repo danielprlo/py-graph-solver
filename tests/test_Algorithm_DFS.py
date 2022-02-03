@@ -1,20 +1,20 @@
 import pytest
 
-from py_graph_solver import Solver, DFS
+from py_graph_solver import DFS
 
 @pytest.fixture()
 def dfs():
   return DFS.DFS()
 
 def test_dfs(dfs):
-  print('aqui')
-  print(dfs.do_algorithm({
-    '5' : ['3','7'],
-    '3' : ['2', '4'],
-    '7' : ['8'],
-    '2' : [],
-    '4' : ['8'],
-    '8' : []
-  }, '5'))
-  assert false
+  result = dfs.do_algorithm({
+    '0' : ['1','2','3','4'],
+    '1' : ['0'],
+    '2' : ['0'],
+    '3' : ['0'],
+    '4' : ['0'],
+  }, '0')
+
+  assert result == ['0', '1', '2', '3', '4']
+
 
