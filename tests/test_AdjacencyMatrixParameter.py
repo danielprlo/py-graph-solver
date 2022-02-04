@@ -3,8 +3,13 @@ import pytest
 from py_graph_solver.AdjacencyMatrixParameter import AdjacencyMatrixParameter
 
 def test_instantiation():
-  parameter = AdjacencyMatrixParameter('Matrix', { '1': '2', '3': '4'})
+  AdjacencyMatrixParameter('Matrix', fixture_adjacency_matrix)
 
 def test_get_adjacency_matrix_that_was_set():
-  parameter = AdjacencyMatrixParameter('Matrix', { '1': '2', '3': '4'})
-  assert parameter.get_value() == { '1': '2', '3': '4'}
+  parameter = AdjacencyMatrixParameter('Matrix', fixture_adjacency_matrix)
+  assert parameter.get_value() == fixture_adjacency_matrix
+
+# Fixtures
+@pytest.fixture()
+def fixture_adjacency_matrix():
+  return {'1': '2', '3': '4'}

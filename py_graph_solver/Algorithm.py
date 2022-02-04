@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-# Interface
+# Abstract class
 class Algorithm(ABC):
   @abstractmethod
   def __init__(self):
