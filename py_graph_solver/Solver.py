@@ -5,7 +5,6 @@ from py_graph_solver import Algorithm
 class Solver:
   def __init__(self):
     self._algorithm = None
-    self.adjacency_list = {}
 
   def set_algorithm(self, algorithm: Algorithm):
     self._algorithm = algorithm
@@ -14,4 +13,4 @@ class Solver:
     return self._algorithm
 
   def solve(self):
-    self._algorithm.do_algorithm(self.adjacency_list)
+    self._algorithm.do_algorithm()
