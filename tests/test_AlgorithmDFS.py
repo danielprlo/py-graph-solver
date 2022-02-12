@@ -15,6 +15,7 @@ def test_add_new_parameters(fixture_dfs_mock, fixture_small_adjacency_matrix):
   assert dfs.get_parameters()[0].get_value() == fixture_small_adjacency_matrix
   assert dfs.get_parameters()[1].get_value() == '1'
 
+
 def test_add_new_adjacency_matrix(fixture_dfs_mock, fixture_small_adjacency_matrix):
   dfs = fixture_dfs_mock
   parameter = AdjacencyMatrixParameter('name', fixture_small_adjacency_matrix)
@@ -27,6 +28,7 @@ def test_add_new_node(fixture_dfs_mock):
   parameter = NodeParameter('name', '12')
   dfs.set_node(parameter)
   assert dfs.get_parameters()[1].get_value() == '12'
+
 
 def test_dfs(fixture_adjacency_matrix):
   dfs = DFS(
@@ -47,6 +49,7 @@ def test_throws_exception_if_node_does_not_exist_in_adjacency_matrix(fixture_adj
     dfs.do_algorithm()
   assert 'Node does not exist in the adjacency list' in str(exc)
 
+
 # Fixtures
 @pytest.fixture()
 def fixture_adjacency_matrix():
@@ -58,6 +61,7 @@ def fixture_adjacency_matrix():
     '4': ['0'],
   }
 
+
 @pytest.fixture()
 def fixture_small_adjacency_matrix():
   return {
@@ -65,12 +69,14 @@ def fixture_small_adjacency_matrix():
     '1': ['1'],
   }
 
+
 @pytest.fixture()
 def fixture_dfs_mock():
   return DFS(
     AdjacencyMatrixParameter('name', fixture_adjacency_matrix),
     NodeParameter('node', '0')
   )
+
 
 @pytest.fixture()
 def fixture_adjacency_matrix_parameter():
